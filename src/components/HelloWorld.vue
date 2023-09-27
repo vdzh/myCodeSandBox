@@ -19,7 +19,7 @@
 <script>
 import { message } from 'ant-design-vue';
 import { PlusOutlined } from '@ant-design/icons';
-import { PicGo } from 'picgo'
+// import { PicGo } from 'picgo'
 
 export default {
   name: 'HelloWorld',
@@ -40,7 +40,8 @@ export default {
     },
     handleUpload(event) {
       const file = event.target.files[0];
-      const requireFunc = typeof __webpack_require__ === 'function' ? __non_webpack_require__ : require
+      // const requireFunc = typeof __webpack_require__ === 'function' ? __non_webpack_require__ : require
+      const requireFunc = typeof __webpack_require__ === 'function' ? require : require
       const PicGo = requireFunc('picgo')
       const pgo = new PicGo();
 
@@ -53,7 +54,7 @@ export default {
             message.error('图片上传失败');
           }
         })
-        .catch((error) => {
+        .catch(() => {
           message.error('图片上传失败');
         });
     },
